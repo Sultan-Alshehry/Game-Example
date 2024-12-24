@@ -24,7 +24,7 @@ screen = pygame.display.set_mode((800, 600))
 
 # instantiate all square objects
 create_object(Object(Vector2(0, 0)))
-create_object(Bullet(Vector2(0, 0), Vector2(0.01, 0.02)))
+create_object(Bullet(Vector2(0, 0), Vector2(0.02, 0.02)))
 
 gameOn = True
 # Our game loop
