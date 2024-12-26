@@ -1,13 +1,11 @@
 import pygame
-
 # import pygame.locals for easier
 # access to key coordinates
 from pygame.locals import *
 from pygame.math import Vector2
 
-from objects import Object, Bullet
-
-objects = []
+import objects
+from bullet import Bullet
 
 def create_object(new_object):
     objects.append(new_object)
@@ -23,8 +21,10 @@ pygame.init()
 screen = pygame.display.set_mode((800, 600))
 
 # instantiate all square objects
+player = Player(size=player_size, position=player_pos, velocity=player_velocity)
+
 create_object(Object(Vector2(0, 0)))
-create_object(Bullet(Vector2(0, 0), Vector2(0.02, 0.02)))
+create_object(Bullet(Vector2(0.1, 0.1), Vector2(0.2, 0.2)))
 
 gameOn = True
 # Our game loop
@@ -36,7 +36,7 @@ while gameOn:
         if event.type == KEYDOWN:
 
             # If the Backspace key has been pressed set
-            # running to false to exit the main loop
+            # running false to exit the main loop
             if event.key == K_BACKSPACE:
                 gameOn = False
 
